@@ -1,0 +1,19 @@
+.table {
+    font-size: 0.875rem;
+  }
+  
+  .table th {
+    font-weight: 500;
+  }
+  
+  .pagination {
+    margin-top: 1rem;
+  }
+  
+  .page-link {
+    cursor: pointer;
+  }
+  
+  .form-control-sm, .form-select-sm {
+    font-size: 0.875rem;
+  }

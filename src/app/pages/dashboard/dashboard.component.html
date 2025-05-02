@@ -1,16 +1,138 @@
-<div class="container">
-    <div class="row g-2">
-        <div class="col-6">
-            <div class="p-3 border bg-light">Custom column padding</div>
+<div class="container mt-3">
+    <div class="row g-2 align-items-stretch">
+
+        <div class="col-md-6 d-flex">
+            <div class="border p-3 shadow-sm w-100">
+                <h6>List years with multiple winners</h6>
+                <table class="table table-bordered table-sm mt-2"
+                *ngIf="movies.length > 0; else noMovies"
+                >
+                    <thead>
+                        <tr class=" table-light">
+                            <th class="fw-normal">Year</th>
+                            <th class="fw-normal">Win Count</th>
+                        </tr>
+                    </thead>
+                    <tbody  >
+                        <tr *ngFor="let movie of movies"  >
+                            <td>{{ movie.year }}</td>
+                            <td>{{ movie.count }}</td>
+                        </tr>
+                        <tr class=" table-light">
+                            <td>1990</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2015</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="col-6">
-            <div class="p-3 border bg-light">Custom column padding</div>
+
+        <div class="col-md-6 d-flex">
+            <div class="border p-3 w-100 shadow-sm">
+                <h6>Top 3 studios with winners</h6>
+                <table class="table table-bordered table-sm mt-2">
+                    <thead>
+                        <tr class=" table-light">
+                            <th class="fw-normal">Name</th>
+                            <th class="fw-normal">Win Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Columbia Pictures</td>
+                            <td>6</td>
+                        </tr>
+                        <tr class=" table-light">
+                            <td>Pavancount Pictures</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Warner Bros.</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="col-6">
-            <div class="p-3 border bg-light">Custom column padding</div>
+        <div class="col-md-6 d-flex mt-2">
+            <div class="border p-3 w-100 shadow-sm">
+                <h6>Producers with longest and shortest interval between wins</h6>
+
+                <!-- Maximum -->
+                <div class="mt-3">
+                    <h6>Maximum</h6>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr class=" table-light">
+                                <th class="fw-normal">Producer</th>
+                                <th class="fw-normal">Interval</th>
+                                <th class="fw-normal">Previous Year</th>
+                                <th class="fw-normal">Following Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Matthew Vaughn</td>
+                                <td>13</td>
+                                <td>2002</td>
+                                <td>2015</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Minimum -->
+                <div class="mt-3">
+                    <h6>Minimum</h6>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr class=" table-light">
+                                <th class="fw-normal">Producer</th>
+                                <th class="fw-normal">Interval</th>
+                                <th class="fw-normal">Previous Year</th>
+                                <th class="fw-normal">Following Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Joel Baker</td>
+                                <td>1</td>
+                                <td>1990</td>
+                                <td>1991</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-            <div class="p-3 border bg-light">Custom column padding</div>
+
+        <div class="col-md-6 d-flex mt-2">
+            <div class="border p-3 w-100 shadow-sm">
+                <h6>List movie winners by year</h6>
+                <div class="input-group input-group-sm mb-3 mt-2">
+                    <input type="number" class="form-control form-control-sm" placeholder="Search by year"
+                        aria-label="Search by year">
+                    <button class="btn btn-primary btn-sm" type="button">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr class=" table-light">
+                            <th class="fw-normal">Id</th>
+                            <th class="fw-normal">Year</th>
+                            <th class="fw-normal">Title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
