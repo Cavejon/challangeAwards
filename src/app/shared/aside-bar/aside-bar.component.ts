@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-aside-bar',
-  imports: [],
+  standalone: true,
+  imports: [RouterModule], 
   templateUrl: './aside-bar.component.html',
-  styleUrl: './aside-bar.component.css'
+  styleUrls: ['./aside-bar.component.css']
 })
-export class AsideBarComponent {
-
-}
+export class AsideBarComponent {}

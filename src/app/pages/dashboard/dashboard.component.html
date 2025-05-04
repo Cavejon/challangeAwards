@@ -4,27 +4,17 @@
         <div class="col-md-6 d-flex">
             <div class="border p-3 shadow-sm w-100">
                 <h6>List years with multiple winners</h6>
-                <table class="table table-bordered table-sm mt-2"
-                *ngIf="movies.length > 0; else noMovies"
-                >
+                <table class="table table-bordered table-sm mt-2">
                     <thead>
                         <tr class=" table-light">
                             <th class="fw-normal">Year</th>
                             <th class="fw-normal">Win Count</th>
                         </tr>
                     </thead>
-                    <tbody  >
-                        <tr *ngFor="let movie of movies"  >
+                    <tbody>
+                        <tr *ngFor="let movie of movies">
                             <td>{{ movie.year }}</td>
-                            <td>{{ movie.count }}</td>
-                        </tr>
-                        <tr class=" table-light">
-                            <td>1990</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>2015</td>
-                            <td>2</td>
+                            <td>{{ movie.winnerCount }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,17 +32,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Columbia Pictures</td>
-                            <td>6</td>
-                        </tr>
-                        <tr class=" table-light">
-                            <td>Pavancount Pictures</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>Warner Bros.</td>
-                            <td>5</td>
+                        <tr *ngFor="let studio of studios">
+                            <td>{{ studio.name }}</td>
+                            <td>{{ studio.winCount }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -67,7 +49,7 @@
                     <h6>Maximum</h6>
                     <table class="table table-bordered table-sm">
                         <thead>
-                            <tr class=" table-light">
+                            <tr class="table-light">
                                 <th class="fw-normal">Producer</th>
                                 <th class="fw-normal">Interval</th>
                                 <th class="fw-normal">Previous Year</th>
@@ -75,11 +57,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Matthew Vaughn</td>
-                                <td>13</td>
-                                <td>2002</td>
-                                <td>2015</td>
+                            <tr *ngFor="let producer of producerIntervalsMax">
+                                <td>{{ producer.producer }}</td>
+                                <td>{{ producer.interval }}</td>
+                                <td>{{ producer.previousWin }}</td>
+                                <td>{{ producer.followingWin }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -90,7 +72,7 @@
                     <h6>Minimum</h6>
                     <table class="table table-bordered table-sm">
                         <thead>
-                            <tr class=" table-light">
+                            <tr class="table-light">
                                 <th class="fw-normal">Producer</th>
                                 <th class="fw-normal">Interval</th>
                                 <th class="fw-normal">Previous Year</th>
@@ -98,11 +80,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Joel Baker</td>
-                                <td>1</td>
-                                <td>1990</td>
-                                <td>1991</td>
+                            <tr *ngFor="let producer of producerIntervalsMin">
+                                <td>{{ producer.producer }}</td>
+                                <td>{{ producer.interval }}</td>
+                                <td>{{ producer.previousWin }}</td>
+                                <td>{{ producer.followingWin }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -114,10 +96,10 @@
             <div class="border p-3 w-100 shadow-sm">
                 <h6>List movie winners by year</h6>
                 <div class="input-group input-group-sm mb-3 mt-2">
-                    <input type="number" class="form-control form-control-sm" placeholder="Search by year"
-                        aria-label="Search by year">
-                    <button class="btn btn-primary btn-sm" type="button">
-                        <i class="bi bi-search"></i>
+                    <input type="number" class="form-control" [(ngModel)]="searchYear" placeholder="Search by year" />
+                    <button class="btn btn-primary" [disabled]="!searchYear"
+                        (click)="loadStudioWinnersByYear(searchYear!)">
+                        Buscar
                     </button>
                 </div>
                 <table class="table table-bordered table-sm">
@@ -129,8 +111,14 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <tr *ngFor="let studio of studiosByYear">
+                            <td>{{ studio.id }}</td>
+                            <td>{{ studio.year }}</td>
+                            <td>{{ studio.title }}</td>
                     </tbody>
+                    <ng-template #noMovies>
+                        <p>No movies found</p>
+                    </ng-template>
                 </table>
             </div>
         </div>
