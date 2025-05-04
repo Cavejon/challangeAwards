@@ -21,7 +21,7 @@ interface Movie {
 })
 export class ListComponent {
   paginatedMovies: Movie[] = [];
-  filteredMovies: Movie[] = [];  
+  filteredMovies: Movie[] = [];
   totalPages = 0;
   currentPage = 1;
   searchTitle = '';
