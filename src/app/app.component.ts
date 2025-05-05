@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavComponent } from './shared/nav/nav.component';
+import { NavComponent } from './components/nav/nav.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { AsideBarComponent } from "./shared/aside-bar/aside-bar.component";
+import { AsideBarComponent } from "./components/aside-bar/aside-bar.component";
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MovieService } from './services/movies/movies.service';
